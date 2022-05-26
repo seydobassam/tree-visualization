@@ -17,5 +17,10 @@
     "noImplicitAny": false,
     "skipLibCheck": true
   },
-  "include": ["src", "index.ts"]
+  "exclude": [
+    "node_modules",
+    "dist",
+    "index.ts",
+    "index.html"
+  ]
 }
