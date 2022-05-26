@@ -1,4 +1,4 @@
-import { TreeOptions } from "./../models/options/tree-options";
+import { TreeOptions } from "../models/options/tree-options";
 import { LinkStyleOptions } from "../options/link-style-options";
 import { NodeStyleOptions } from "../options/node-style-options";
 import { BinaryTree } from "../models/binary-tree";
@@ -12,7 +12,7 @@ let el: string;
 let tree: BinaryTree<number | string>;
 let isAnimationEnded: boolean = true;
 
-export function binarySearchTree() {
+export function binaryTree() {
   function draw(
     element: string,
     binaryTree: BinaryTree<number | string>,

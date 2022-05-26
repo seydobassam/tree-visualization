@@ -1,5 +1,5 @@
 import { BinaryTree } from "./src/models/binary-tree";
-import { binarySearchTree } from "./src/d3-drawer/drawer";
+import { binaryTree } from "./src/d3-drawer/binaryTree";
 
 let bst: BinaryTree<number> = new BinaryTree<number>(100);
 bst.addNode(51);
@@ -21,10 +21,10 @@ bst.addNode(57);
 bst.addNode(233);
 bst.addNode(235);
 bst.addNode(149);
-binarySearchTree().draw("div", bst);
-binarySearchTree().onNodeClick((_:any, d: any) => {
+binaryTree().draw("div", bst);
+binaryTree().onNodeClick((_:any, d: any) => {
     if (d.id !== 0) {
         console.log("onNode is called", d)
-        binarySearchTree().animate("#path" + d.id)
+        binaryTree().animate("#path" + d.id)
     }
 });
