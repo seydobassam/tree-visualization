@@ -250,7 +250,7 @@ export function binaryTree() {
       })
       .attr("fill", "none")
       .attr("d", getLinkGenarator())
-      .each(function (d: any) {
+      .each(function (this: any, d: any) {
         d.totalLength = this.getTotalLength();
       })
 

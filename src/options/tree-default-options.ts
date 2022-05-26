@@ -14,7 +14,7 @@ export const defaultTreeOptions: TreeOptions = {
   autoExpandTreeSize: false,
   addMouseHoverToNodes: true,
   animation: false,
-  duration: 4500,
+  duration: 500,
   nodeStyleOptions: new NodeStyleOptions(),
   linkStyleOptions: new LinkStyleOptions(),
 };
