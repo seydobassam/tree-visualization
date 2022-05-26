@@ -41,7 +41,7 @@ export function binaryTree() {
     .select(pathId)
     .transition(300)
     .duration(treeOptions.duration)
-    .attr("stroke", "#808080") 
+    .attr("stroke", "#626ee3") 
   }
 
   function onNodeClick(callback: Function): void {
