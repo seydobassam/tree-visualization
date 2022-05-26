@@ -37,20 +37,11 @@ export function binaryTree() {
 
   function animate(pathId: string) {
     if(!isAnimationEnded) return; 
-    return svg
-      .select(pathId)
-      .attr("stroke", "#808080")
-      .attr("stroke-dasharray", function (d: any) {
-        console.log(d);  
-        return d.totalLength + " " + d.totalLength;
-      })
-      .attr("stroke-dashoffset", function (d: any) {
-        return d.totalLength;
-      })
-      .transition()
-      .duration(treeOptions.duration)
-      .ease(d3.easeLinear)
-      .attr("stroke-dashoffset", 0);
+    return  svg
+    .select(pathId)
+    .transition(300)
+    .duration(treeOptions.duration)
+    .attr("stroke", "#808080") 
   }
 
   function onNodeClick(callback: Function): void {
