@@ -25,6 +25,8 @@ binaryTree().draw("div", bst);
 binaryTree().onNodeClick((_:any, d: any) => {
     if (d.id !== 0) {
         console.log("onNode is called", d)
-        binaryTree().animate("#path" + d.id)
     }
 });
+
+// binaryTree().animate("#path" + 6).on("end", () => binaryTree().animate("#path" + 13))
+

@@ -37,7 +37,7 @@ export function binaryTree() {
 
   function animate(pathId: string) {
     if(!isAnimationEnded) return; 
-    svg
+    return svg
       .select(pathId)
       .attr("stroke", "#808080")
       .attr("stroke-dasharray", function (d: any) {

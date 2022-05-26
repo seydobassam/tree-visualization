@@ -13,8 +13,8 @@ export const defaultTreeOptions: TreeOptions = {
   sizeBetweenNodes: 180,
   autoExpandTreeSize: false,
   addMouseHoverToNodes: true,
-  animation: true,
-  duration: 500,
+  animation: false,
+  duration: 4500,
   nodeStyleOptions: new NodeStyleOptions(),
   linkStyleOptions: new LinkStyleOptions(),
 };
