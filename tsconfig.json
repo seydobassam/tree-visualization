@@ -24,7 +24,7 @@
   "exclude": [
     "node_modules",
     "dist",
-    "app.ts",
-    "app.html"
+    "index.ts",
+    "index.html"
   ]
 } 
