@@ -15,6 +15,7 @@
     "noImplicitReturns": true,
     "noImplicitAny": false,
     "skipLibCheck": true,
+    "declaration": true,
     "outDir": "dist"
   },
   "include": [
@@ -26,4 +27,4 @@
     "app.ts",
     "app.html"
   ]
-}
+} 
