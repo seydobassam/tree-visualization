@@ -1,5 +1,4 @@
-import BinaryTree from "./src/models/binary-tree";
-import binaryTreeDrawer from "./src/d3-drawer/binaryTreeDrawer";
+import { BinaryTree, binaryTreeDrawer } from "./src/index"
 
 let bst: BinaryTree<number> = new BinaryTree<number>(100);
 bst.addNode(51);
