@@ -12,6 +12,7 @@ let el: string;
 let tree: BinaryTree<number | string>;
 let isAnimationEnded: boolean = true;
 
+// FIXME: use single principle to refactor below code 
 export default function binaryTreeDrawer() {
   function draw(
     element: string,
