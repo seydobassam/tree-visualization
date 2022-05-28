@@ -1,5 +1,5 @@
 import { BinaryNode } from "./binary-node";
-export class BinaryTree<T> {
+export default class BinaryTree<T> {
   public root: BinaryNode<T>;
 
   constructor(value: T) {

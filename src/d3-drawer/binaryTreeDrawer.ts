@@ -1,7 +1,7 @@
 import { TreeOptions } from "../models/options/tree-options";
 import { LinkStyleOptions } from "../options/link-style-options";
 import { NodeStyleOptions } from "../options/node-style-options";
-import { BinaryTree } from "../models/binary-tree";
+import BinaryTree  from "../models/binary-tree";
 import * as d3 from "d3";
 import { defaultTreeOptions } from "../options/tree-default-options";
 import binaryTreeUtiles from "../utiles/binary-tree-utiles";
@@ -12,7 +12,7 @@ let el: string;
 let tree: BinaryTree<number | string>;
 let isAnimationEnded: boolean = true;
 
-export function binaryTree() {
+export default function binaryTreeDrawer() {
   function draw(
     element: string,
     binaryTree: BinaryTree<number | string>,
