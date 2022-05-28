@@ -1,4 +1,4 @@
-import { BinaryTree } from '../models/binary-tree';
+import BinaryTree from '../models/binary-tree';
 import { BinaryNode } from "../models/binary-node";
 export default function binaryTreeUtiles() {
   var currentRoot: BinaryNode<String | number>;
