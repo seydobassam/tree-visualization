@@ -21,7 +21,7 @@ bst.addNode(233);
 bst.addNode(235);
 bst.addNode(149);
 binaryTreeDrawer().draw("div", bst);
-binaryTreeDrawer().onNodeClick((_: any, d: any) => {
+binaryTreeDrawer().onNodeClick((d: any) => {
   if (d.id !== 0) {
     console.log("onNode is called", d);
   }
