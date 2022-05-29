@@ -218,8 +218,8 @@ export default function binaryTreeDrawer() {
   }
 
   function addBTNodesId(nodes: d3.HierarchyPointNode<unknown>[]): any {
-    return svg.selectAll("circle").data(nodes, function (node: any, i: number) {
-      return node.id || (node.id = i);
+    return svg.selectAll("circle").data(nodes, function (node: any, i: number) {      
+      return node.value || (node.id = i);
     });
   }
 
@@ -235,7 +235,7 @@ export default function binaryTreeDrawer() {
       .insert("path", "g")
       .attr("class", "algo-path")
       .attr("id", function (e: any) {
-        e.pathId = "path" + e.target.id;
+        e.pathId = `path${e.target.data.value || e.target.id}`;
         return e.pathId;
       })
       .attr("fill", "none")
