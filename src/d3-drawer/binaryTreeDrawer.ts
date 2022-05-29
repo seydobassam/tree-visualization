@@ -26,20 +26,18 @@ export default function binaryTreeDrawer() {
     let { nodes, links } = getTreeData();
     addOptionToBinaryTree(nodes);
     let binaryTreeEnter = getBinaryTreeEnter(nodes);
-    if (treeOptions.drawNodes)
-      drawNodes(binaryTreeEnter, treeOptions.nodeStyleOptions!);
-    if (treeOptions.drawConnections)
-      drawConnections(links, treeOptions.linkStyleOptions!);
+    if (treeOptions.drawNodes) drawNodes(binaryTreeEnter, treeOptions.nodeStyleOptions!);
+    if (treeOptions.drawConnections) drawConnections(links, treeOptions.linkStyleOptions!);
     if (treeOptions.animation) animateConnections();
     if (treeOptions.drawNodevalue) addTextToNodes(binaryTreeEnter);
     if (treeOptions.nodeStyleOptions.onMouseHoverColor) addMouseHoverToNodes();
     if (treeOptions.zoom) addZoom();
   }
 
-  function animate(pathId: string) {
+  function animate(pathId: number) {
     if(!isAnimationEnded) return; 
     return  svg
-    .select(pathId)
+    .select(`#${pathId}`)
     .transition(300)
     .duration(treeOptions.duration)
     .attr("stroke", "#626ee3") 
