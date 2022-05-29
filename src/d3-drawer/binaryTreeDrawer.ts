@@ -47,12 +47,12 @@ export default function binaryTreeDrawer() {
     if (typeof callback !== "function") {
       return;
     }
-    svg.selectAll("#g").on("click", (e: any, d: object) => {
+    svg.selectAll("#g").on("click", (event: any, node: object) => {
       if (isAnimationEnded) {
         if (treeOptions.nodeStyleOptions.selectedNodeColor) {
-            selectNode(e);
+            selectNode(event);
           }      
-          callback(e, d);
+          callback(node, event);
       }
     });
   }
