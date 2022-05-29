@@ -28,5 +28,5 @@ binaryTreeDrawer().onNodeClick((_: any, d: any) => {
 });
 
 binaryTreeDrawer()
-  .animate(6)
-  .on("end", () => binaryTreeDrawer().animate(13));
+  .animate(150)
+  .on("end", () => binaryTreeDrawer().animate(152));

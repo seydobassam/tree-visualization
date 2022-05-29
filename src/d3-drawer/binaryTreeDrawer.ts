@@ -37,7 +37,7 @@ export default function binaryTreeDrawer() {
   function animate(pathId: number) {
     if(!isAnimationEnded) return; 
     return  svg
-    .select(`#${pathId}`)
+    .select(`#path${pathId}`)
     .transition(300)
     .duration(treeOptions.duration)
     .attr("stroke", "#626ee3") 
