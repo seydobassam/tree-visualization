@@ -1,7 +1,7 @@
 import { TreeOptions } from "../models/options/tree-options";
 import { LinkStyleOptions } from "../options/link-style-options";
 import { NodeStyleOptions } from "../options/node-style-options";
-import BinaryTree  from "../models/binary-tree";
+import BinaryTree from "../models/binary-tree";
 import * as d3 from "d3";
 import { defaultTreeOptions } from "../options/tree-default-options";
 import binaryTreeUtiles from "../utiles/binary-tree-utiles";
@@ -11,8 +11,9 @@ let svg: any;
 let el: string;
 let tree: BinaryTree<number | string>;
 let isAnimationEnded: boolean = true;
+let onNodeClickCallback: Function;
 
-// FIXME: use single principle to refactor below code 
+// FIXME: use single principle to refactor below code
 export default function binaryTreeDrawer() {
   function draw(
     element: string,
@@ -26,33 +27,43 @@ export default function binaryTreeDrawer() {
     let { nodes, links } = getTreeData();
     addOptionToBinaryTree(nodes);
     let binaryTreeEnter = getBinaryTreeEnter(nodes);
-    if (treeOptions.drawNodes) drawNodes(binaryTreeEnter, treeOptions.nodeStyleOptions!);
-    if (treeOptions.drawConnections) drawConnections(links, treeOptions.linkStyleOptions!);
+    if (treeOptions.drawNodes)
+      drawNodes(binaryTreeEnter, treeOptions.nodeStyleOptions!);
+    if (treeOptions.drawConnections)
+      drawConnections(links, treeOptions.linkStyleOptions!);
     if (treeOptions.animation) animateConnections();
     if (treeOptions.drawNodevalue) addTextToNodes(binaryTreeEnter);
     if (treeOptions.nodeStyleOptions.onMouseHoverColor) addMouseHoverToNodes();
     if (treeOptions.zoom) addZoom();
   }
 
+  function refreshTree() {
+    d3.select("#svg-container").remove();
+    isAnimationEnded = true;
+    draw(el, tree, treeOptions);
+    onNodeClick(onNodeClickCallback); 
+  }
+
   function animate(pathId: number) {
-    if(!isAnimationEnded) return; 
-    return  svg
-    .select(`#path${pathId}`)
-    .transition(300)
-    .duration(treeOptions.duration)
-    .attr("stroke", "#626ee3") 
+    if (!isAnimationEnded) return;
+    return svg
+      .select(`#path${pathId}`)
+      .transition(300)
+      .duration(treeOptions.duration)
+      .attr("stroke", "#626ee3");
   }
 
   function onNodeClick(callback: Function): void {
     if (typeof callback !== "function") {
       return;
     }
+    onNodeClickCallback = callback;
     svg.selectAll("#g").on("click", (event: any, node: object) => {
       if (isAnimationEnded) {
         if (treeOptions.nodeStyleOptions.selectedNodeColor) {
-            selectNode(event);
-          }      
-          callback(node, event);
+          selectNode(event);
+        }
+        callback(node, event);
       }
     });
   }
@@ -81,6 +92,7 @@ export default function binaryTreeDrawer() {
     svg = d3
       .select(`${el}`)
       .append("svg")
+      .attr("id", "svg-container")
       .attr("width", getTreeWidth())
       .attr("height", treeOptions.height)
       .attr("transform", "translate(" + 0 + "," + 150 + ")")
@@ -218,7 +230,7 @@ export default function binaryTreeDrawer() {
   }
 
   function addBTNodesId(nodes: d3.HierarchyPointNode<unknown>[]): any {
-    return svg.selectAll("circle").data(nodes, function (node: any, i: number) {      
+    return svg.selectAll("circle").data(nodes, function (node: any, i: number) {
       return node.value || (node.id = i);
     });
   }
@@ -242,7 +254,7 @@ export default function binaryTreeDrawer() {
       .attr("d", getLinkGenarator())
       .each(function (this: any, d: any) {
         d.totalLength = this.getTotalLength();
-      })
+      });
 
     if (treeOptions.animation) {
       addNewPropToConnects(connections);
@@ -260,16 +272,16 @@ export default function binaryTreeDrawer() {
 
   function addNewPropToConnects(connections: any) {
     connections
-      .attr("stroke-dasharray", (d: any) => d.totalLength + " " + d.totalLength )
+      .attr("stroke-dasharray", (d: any) => d.totalLength + " " + d.totalLength)
       .attr("stroke-dashoffset", (d: any) => d.totalLength);
   }
 
   function animateConnections(paths: any = getPathes(), pathIndex: number = 0) {
     isAnimationEnded = false;
     if (paths.length <= pathIndex) {
-        isAnimationEnded = true;
-        return
-    };
+      isAnimationEnded = true;
+      return;
+    }
     const path1 = paths[pathIndex];
     const path2 = paths[pathIndex + 1];
 
@@ -338,5 +350,10 @@ export default function binaryTreeDrawer() {
     svg.selectAll(element).attr("class", className);
   }
 
-  return { draw: draw, onNodeClick: onNodeClick, animate: animate };
+  return {
+    draw: draw,
+    onNodeClick: onNodeClick,
+    animate: animate,
+    refreshTree: refreshTree,
+  };
 }

@@ -1,4 +1,5 @@
-import { BinaryTree, binaryTreeDrawer } from "./src/index"
+import { BinaryTree, binaryTreeDrawer } from "./src/index";
+import * as d3 from "d3";
 
 let bst: BinaryTree<number> = new BinaryTree<number>(100);
 bst.addNode(51);
@@ -20,13 +21,10 @@ bst.addNode(57);
 bst.addNode(233);
 bst.addNode(235);
 bst.addNode(149);
-binaryTreeDrawer().draw("div", bst);
-binaryTreeDrawer().onNodeClick((d: any) => {
-  if (d.id !== 0) {
-    console.log("onNode is called", d);
-  }
-});
 
-binaryTreeDrawer()
-  .animate(150)
-  .on("end", () => binaryTreeDrawer().animate(152));
+binaryTreeDrawer().draw("div", bst);
+binaryTreeDrawer().onNodeClick((node: any) => {  
+  binaryTreeDrawer()
+    .animate(node.data.value)
+    .on("end", () => {});
+});
