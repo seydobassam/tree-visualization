@@ -80,34 +80,34 @@ export default function binaryTreeDrawer() {
     svg.selectAll("#g").on("click", (event: any, node: any) => {
       if (isAnimationEnded) {
         if (treeOptions.nodeStyleOptions.selectedNodeColor) {
-          selectNode(node.nodeId);
+          selectNode(node);
         }
-        const [nodeId] = selectedNode.keys();
-        callback(nodeId, event);
+        const [currentNode] = selectedNode.keys();
+        callback(currentNode, event);
       }
     });
   }
 
-  function selectNode(selectedNodeId: any) {
-    const [nodeId] = selectedNode.keys();
+  function selectNode(node: any) {
+    const [currentNode] = selectedNode.keys();
 
-    if (nodeId === selectedNodeId) {
-      fillNode(nodeId, treeOptions.nodeStyleOptions.fillCollor!);
+    if (node === currentNode) {
+      fillNode(node, treeOptions.nodeStyleOptions.fillCollor!);
       selectedNode = new Map();
       return;
     }
 
-    if (nodeId) {
-      fillNode(nodeId, treeOptions.nodeStyleOptions.fillCollor!);
+    if (currentNode) {
+      fillNode(currentNode, treeOptions.nodeStyleOptions.fillCollor!);
       selectedNode = new Map();
     }
 
-    fillNode(selectedNodeId, treeOptions.nodeStyleOptions.selectedNodeColor!);
+    fillNode(node, treeOptions.nodeStyleOptions.selectedNodeColor!);
   }
 
-  function fillNode(nodeId: string, color: string) {
-    selectedNode.set(nodeId, color);
-    let id: string = `#${nodeId}`;
+  function fillNode(node: any, color: string) {
+    selectedNode.set(node, color);
+    let id: string = `#${node.nodeId}`;
     d3.select(id).style("fill", color);
   }
 
