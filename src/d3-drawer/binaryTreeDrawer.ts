@@ -10,6 +10,7 @@ let treeOptions: TreeOptions;
 let svg: any;
 let el: string;
 let tree: BinaryTree<number | string>;
+let selectedNode = new Map<string, string>();
 let isAnimationEnded: boolean = true;
 let onNodeClickCallback: Function;
 
@@ -42,6 +43,11 @@ export default function binaryTreeDrawer() {
     removeTree();
     draw(el, tree, treeOptions);
     onNodeClick(onNodeClickCallback);
+    if (selectedNode.size > 0) {
+      const [node] = selectedNode.keys();
+      const [color] = selectedNode.values();
+      fillNode(node, color);
+    }
   }
 
   function removeTree() {
@@ -71,34 +77,37 @@ export default function binaryTreeDrawer() {
       return;
     }
     onNodeClickCallback = callback;
-    svg.selectAll("#g").on("click", (event: any, node: object) => {
+    svg.selectAll("#g").on("click", (event: any, node: any) => {
       if (isAnimationEnded) {
         if (treeOptions.nodeStyleOptions.selectedNodeColor) {
-          selectNode(event);
+          selectNode(node.nodeId);
         }
         callback(node, event);
       }
     });
   }
 
-  var selectedNode: string;
-  function selectNode(event: any) {
-    const newSelectedNode = event.currentTarget;
-    if (selectedNode) {
-      d3.select(selectedNode)
-        .select("circle")
-        .style("fill", treeOptions.nodeStyleOptions.fillCollor!);
-    }
+  function selectNode(selectedNodeId: any) {
+    const [nodeId] = selectedNode.keys();
 
-    if (selectedNode === newSelectedNode) {
-      selectedNode = "";
+    if (nodeId === selectedNodeId) {
+      fillNode(nodeId, treeOptions.nodeStyleOptions.fillCollor!);
+      selectedNode = new Map();
       return;
     }
 
-    d3.select(newSelectedNode)
-      .select("circle")
-      .style("fill", treeOptions.nodeStyleOptions.selectedNodeColor!);
-    selectedNode = newSelectedNode;
+    if (nodeId) {
+      fillNode(nodeId, treeOptions.nodeStyleOptions.fillCollor!);
+      selectedNode = new Map();
+    }
+
+    fillNode(selectedNodeId, treeOptions.nodeStyleOptions.selectedNodeColor!);
+  }
+
+  function fillNode(nodeId: string, color: string) {
+    selectedNode.set(nodeId, color);
+    let id: string = `#${nodeId}`;
+    d3.select(id).style("fill", color);
   }
 
   function initSvg(): void {
@@ -189,10 +198,13 @@ export default function binaryTreeDrawer() {
     binaryTreeEnter: any,
     nodeStyleOptions: NodeStyleOptions
   ): void {
-    binaryTreeEnter.append("circle").attr("r", nodeStyleOptions.radius).attr("id", function (node: any) {      
-      node.nodeId = `node${node.data.value || node.data.id}`;
-      return node.nodeId;
-    });
+    binaryTreeEnter
+      .append("circle")
+      .attr("r", nodeStyleOptions.radius)
+      .attr("id", function (node: any) {
+        node.nodeId = `node${node.data.value || node.data.id}`;
+        return node.nodeId;
+      });
     const style = {
       fill: nodeStyleOptions.fillCollor,
       stroke: nodeStyleOptions.strokeColor,
