@@ -48,10 +48,19 @@ export default function binaryTreeDrawer() {
     d3.select("#svg-container").remove();
   }
 
-  function animate(pathId: number) {
+  function animatePath(pathId: number) {
     if (!isAnimationEnded) return;
     return svg
       .select(`#path${pathId}`)
+      .transition(300)
+      .duration(treeOptions.duration)
+      .attr("stroke", "#626ee3");
+  }
+
+  function animateNode(nodeId: number) {
+    if (!isAnimationEnded) return;
+    return svg
+      .select(`#node${nodeId}`)
       .transition(300)
       .duration(treeOptions.duration)
       .attr("stroke", "#626ee3");
@@ -180,7 +189,10 @@ export default function binaryTreeDrawer() {
     binaryTreeEnter: any,
     nodeStyleOptions: NodeStyleOptions
   ): void {
-    binaryTreeEnter.append("circle").attr("r", nodeStyleOptions.radius);
+    binaryTreeEnter.append("circle").attr("r", nodeStyleOptions.radius).attr("id", function (node: any) {      
+      node.nodeId = `node${node.data.value || node.data.id}`;
+      return node.nodeId;
+    });
     const style = {
       fill: nodeStyleOptions.fillCollor,
       stroke: nodeStyleOptions.strokeColor,
@@ -357,7 +369,8 @@ export default function binaryTreeDrawer() {
   return {
     draw: draw,
     onNodeClick: onNodeClick,
-    animate: animate,
+    animatePath: animatePath,
+    animateNode: animateNode,
     refreshTree: refreshTree,
     removeTree: removeTree,
   };
