@@ -38,10 +38,14 @@ export default function binaryTreeDrawer() {
   }
 
   function refreshTree() {
-    d3.select("#svg-container").remove();
     isAnimationEnded = true;
+    removeTree();
     draw(el, tree, treeOptions);
-    onNodeClick(onNodeClickCallback); 
+    onNodeClick(onNodeClickCallback);
+  }
+
+  function removeTree() {
+    d3.select("#svg-container").remove();
   }
 
   function animate(pathId: number) {
@@ -355,5 +359,6 @@ export default function binaryTreeDrawer() {
     onNodeClick: onNodeClick,
     animate: animate,
     refreshTree: refreshTree,
+    removeTree: removeTree,
   };
 }

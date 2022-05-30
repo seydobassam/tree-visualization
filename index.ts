@@ -26,5 +26,8 @@ binaryTreeDrawer().draw("div", bst);
 binaryTreeDrawer().onNodeClick((node: any) => {  
   binaryTreeDrawer()
     .animate(node.data.value)
-    .on("end", () => {});
+    .on("end", () => {
+      binaryTreeDrawer().removeTree();
+      binaryTreeDrawer().draw("div", bst);
+    });
 });
