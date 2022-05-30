@@ -24,11 +24,13 @@ bst.addNode(149);
 
 binaryTreeDrawer().draw("div", bst);
 binaryTreeDrawer().onNodeClick((node: any) => {  
-  binaryTreeDrawer()
+  console.log(node);
+  
+  /* binaryTreeDrawer()
   .animatePath(node.data.value)
   .on("end", () => {
     binaryTreeDrawer().refreshTree();
-    /* binaryTreeDrawer().refreshTree();
-    binaryTreeDrawer().animateNode(100); */
-  }); 
+    binaryTreeDrawer().refreshTree();
+    binaryTreeDrawer().animateNode(100);
+  });  */
 });

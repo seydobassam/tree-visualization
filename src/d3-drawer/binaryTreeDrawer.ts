@@ -82,7 +82,8 @@ export default function binaryTreeDrawer() {
         if (treeOptions.nodeStyleOptions.selectedNodeColor) {
           selectNode(node.nodeId);
         }
-        callback(node, event);
+        const [nodeId] = selectedNode.keys();
+        callback(nodeId, event);
       }
     });
   }
