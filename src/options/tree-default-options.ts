@@ -4,7 +4,7 @@ import { TreeOptions } from "../models/options/tree-options";
 
 export const defaultTreeOptions: TreeOptions = {
   width: window.innerWidth,
-  height: window.innerHeight - 200,
+  height: window.innerHeight,
   transformTreeFromTop: 0,
   transformTreeFromLeft: 0,
   zoom: true,
