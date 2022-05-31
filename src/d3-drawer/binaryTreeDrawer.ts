@@ -118,7 +118,7 @@ export default function binaryTreeDrawer() {
       .attr("id", "svg-container")
       .attr("width", getTreeWidth())
       .attr("height", treeOptions.height)
-      .attr("transform", "translate(" + 0 + "," + 150 + ")")
+      .attr("transform", "translate(" + treeOptions.transformTreeFromLeft + "," + treeOptions.transformTreeFromTop + ")")
       .append("g")
       .attr("id", "g-container")
       .attr("transform", "translate(" + 0 + "," + 30 + ")");

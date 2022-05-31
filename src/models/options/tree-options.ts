@@ -3,6 +3,8 @@ import { NodeStyleOptions } from "../../options/node-style-options";
 export interface TreeOptions {
   width: number;
   height: number;
+  transformTreeFromTop: number;
+  transformTreeFromLeft: number;
   zoom: boolean;
   sizeBetweenNodes: number;
   autoFitText: boolean;
