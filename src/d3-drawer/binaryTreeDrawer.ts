@@ -54,21 +54,21 @@ export default function binaryTreeDrawer() {
     d3.select("#svg-container").remove();
   }
 
-  function animatePath(pathId: number) {
+  function animatePath(pathId: number, transition?: number,  duration?: number) {
     if (!isAnimationEnded) return;
     return svg
       .select(`#path${pathId}`)
-      .transition(300)
-      .duration(treeOptions.duration)
+      .transition(transition ?? 300)
+      .duration(duration ?? 300)
       .attr("stroke", "#626ee3");
   }
 
-  function animateNode(nodeId: number) {
+  function animateNode(nodeId: number, transition?: number, duration?: number) {
     if (!isAnimationEnded) return;
     return svg
       .select(`#node${nodeId}`)
-      .transition(300)
-      .duration(treeOptions.duration)
+      .transition(transition ?? 300)
+      .duration(duration ?? 300)
       .attr("stroke", "#626ee3");
   }
 
