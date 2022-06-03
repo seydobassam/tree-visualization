@@ -50,24 +50,29 @@ export default function binaryTreeDrawer() {
     }
   }
 
+  function stopTransition() {
+    d3.selectAll("path").transition();
+    d3.selectAll("circle").transition();
+  }
+
   function removeTree() {
     d3.select("#svg-container").remove();
   }
 
-  function animatePath(pathId: number, transition?: number,  duration?: number) {
+  function animatePath(pathId: number,  duration?: number) {
     if (!isAnimationEnded) return;
     return svg
       .select(`#path${pathId}`)
-      .transition(transition ?? 300)
+      .transition(300)
       .duration(duration ?? 300)
       .attr("stroke", "#626ee3");
   }
 
-  function animateNode(nodeId: number, transition?: number, duration?: number) {
+  function animateNode(nodeId: number, duration?: number) {
     if (!isAnimationEnded) return;
     return svg
       .select(`#node${nodeId}`)
-      .transition(transition ?? 300)
+      .transition(300)
       .duration(duration ?? 300)
       .attr("stroke", "#626ee3");
   }
@@ -384,6 +389,7 @@ export default function binaryTreeDrawer() {
     onNodeClick: onNodeClick,
     animatePath: animatePath,
     animateNode: animateNode,
+    stopTransition: stopTransition,
     refreshTree: refreshTree,
     removeTree: removeTree,
   };
