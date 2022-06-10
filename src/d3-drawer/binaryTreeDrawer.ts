@@ -1,3 +1,4 @@
+import { AnimationOptions } from './../models/options/animation-options';
 import { TreeOptions } from "../models/options/tree-options";
 import { LinkStyleOptions } from "../options/link-style-options";
 import { NodeStyleOptions } from "../options/node-style-options";
@@ -59,21 +60,29 @@ export default function binaryTreeDrawer() {
     d3.select("#svg-container").remove();
   }
 
-  function animatePath(pathId: number,  duration?: number) {
+  function animatePath(pathId: number, animationOptions?: AnimationOptions) {
     if (!isAnimationEnded) return;
-    return svg
-      .select(`#path${pathId}`)
+    const path = svg.select(`#path${pathId}`);
+    if (animationOptions?.animationClass) {
+      return path.attr("class", animationOptions.animationClass);
+    }
+    return path
       .transition(300)
-      .duration(duration ?? 300)
+      .duration(animationOptions?.duration)
       .attr("stroke", "#626ee3");
   }
 
-  function animateNode(nodeId: number, duration?: number) {
+  function animateNode(nodeId: number, animationOptions?: AnimationOptions) {
     if (!isAnimationEnded) return;
-    return svg
-      .select(`#node${nodeId}`)
+    const node = svg.select(`#node${nodeId}`);
+    if (animationOptions?.animationClass) {
+      console.log("commming ", animationOptions.animationClass);
+      
+      return node.attr("class", animationOptions.animationClass);
+    }
+    return node
       .transition(300)
-      .duration(duration ?? 300)
+      .duration(animationOptions?.duration)
       .attr("stroke", "#626ee3");
   }
 
