@@ -75,9 +75,7 @@ export default function binaryTreeDrawer() {
   function animateNode(nodeId: number, animationOptions?: AnimationOptions) {
     if (!isAnimationEnded) return;
     const node = svg.select(`#node${nodeId}`);
-    if (animationOptions?.animationClass) {
-      console.log("commming ", animationOptions.animationClass);
-      
+    if (animationOptions?.animationClass) {      
       return node.attr("class", animationOptions.animationClass);
     }
     return node
