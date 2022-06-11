@@ -1,5 +1,4 @@
 import { BinaryTree, binaryTreeDrawer } from "./src/index";
-import * as d3 from "d3";
 
 let bst: BinaryTree<number> = new BinaryTree<number>(100);
 bst.addNode(51);
@@ -22,15 +21,15 @@ bst.addNode(233);
 bst.addNode(235);
 bst.addNode(149);
 
-binaryTreeDrawer().draw("div", bst);
+binaryTreeDrawer().draw("div", bst, {
+  linkStyleOptions: {
+    addAnimationPaths: true
+  }
+});
 binaryTreeDrawer().onNodeClick((node: any) => {  
   console.log(node);
   
-  /* binaryTreeDrawer()
-  .animatePath(node.data.value)
-  .on("end", () => {
-    binaryTreeDrawer().refreshTree();
-    binaryTreeDrawer().refreshTree();
-    binaryTreeDrawer().animateNode(100);
-  });  */
+  binaryTreeDrawer().animatePath(node?.data?.value, {
+    animationClass: "path"
+  });
 });

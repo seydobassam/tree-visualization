@@ -16,6 +16,30 @@
       .mouseHover {
         fill: aqua;
       }
+
+      .path {
+        background: #ffeba7;
+        transform-box: fill-box;
+        stroke-dasharray: 1000;
+        stroke-dashoffset: 1000;
+        animation-duration: 5s;
+        animation-direction: alternate;
+        animation-iteration-count: 1;
+        animation-fill-mode: forwards;
+        animation-play-state: running;
+        animation-name: dash;
+      }
+
+      @keyframes dash {
+        0% {
+          stroke-dasharray: 1000;
+          stroke: black;
+        }
+        to {
+          stroke-dashoffset: 0;
+          stroke: black;
+        }
+      }
     </style>
   </head>
   <body>

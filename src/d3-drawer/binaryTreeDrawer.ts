@@ -1,4 +1,4 @@
-import { AnimationOptions } from './../models/options/animation-options';
+import { AnimationOptions } from "./../models/options/animation-options";
 import { TreeOptions } from "../models/options/tree-options";
 import { LinkStyleOptions } from "../options/link-style-options";
 import { NodeStyleOptions } from "../options/node-style-options";
@@ -62,7 +62,8 @@ export default function binaryTreeDrawer() {
 
   function animatePath(pathId: number, animationOptions?: AnimationOptions) {
     if (!isAnimationEnded) return;
-    const path = svg.select(`#path${pathId}`);
+    const id: string = !treeOptions.linkStyleOptions.addAnimationPaths ? "#path" : "#animationPath" 
+    const path = svg.select(`${id}${pathId}`);
     if (animationOptions?.animationClass) {
       return path.attr("class", animationOptions.animationClass);
     }
@@ -75,7 +76,7 @@ export default function binaryTreeDrawer() {
   function animateNode(nodeId: number, animationOptions?: AnimationOptions) {
     if (!isAnimationEnded) return;
     const node = svg.select(`#node${nodeId}`);
-    if (animationOptions?.animationClass) {      
+    if (animationOptions?.animationClass) {
       return node.attr("class", animationOptions.animationClass);
     }
     return node
@@ -130,7 +131,14 @@ export default function binaryTreeDrawer() {
       .attr("id", "svg-container")
       .attr("width", getTreeWidth())
       .attr("height", treeOptions.height)
-      .attr("transform", "translate(" + treeOptions.transformTreeFromLeft + "," + treeOptions.transformTreeFromTop + ")")
+      .attr(
+        "transform",
+        "translate(" +
+          treeOptions.transformTreeFromLeft +
+          "," +
+          treeOptions.transformTreeFromTop +
+          ")"
+      )
       .append("g")
       .attr("id", "g-container")
       .attr("transform", "translate(" + 0 + "," + 30 + ")");
@@ -283,22 +291,15 @@ export default function binaryTreeDrawer() {
         return link.target.id;
       });
 
-    var connections = connections
-      .enter()
-      .insert("path", "g")
-      .attr("class", "algo-path")
-      .attr("id", function (e: any) {
-        e.pathId = `path${e.target.data.value || e.target.id}`;
-        return e.pathId;
-      })
-      .attr("fill", "none")
-      .attr("d", getLinkGenarator())
-      .each(function (this: any, d: any) {
-        d.totalLength = this.getTotalLength();
-      });
+    var paths = addPaths(connections, "path");
+
+    // add the same paths for animation
+    if (linkStyleOptions.addAnimationPaths) {
+      addPaths(connections, "animationPath");
+    }
 
     if (treeOptions.animation) {
-      addNewPropToConnects(connections);
+      addNewPropToConnects(paths);
     }
 
     const style = {
@@ -309,6 +310,21 @@ export default function binaryTreeDrawer() {
     !linkStyleOptions.styleClass
       ? addCssAttributesToElements(svg.selectAll("path"), style)
       : addClassToElements("path", linkStyleOptions.styleClass);
+  }
+
+  function addPaths(connections: any, pathId: string) {
+    return connections
+      .enter()
+      .insert("path", "g")
+      .attr("id", function (e: any) {
+        e.pathId = `${pathId}${e.target.data.value || e.target.id}`;
+        return e.pathId;
+      })
+      .attr("fill", "none")
+      .attr("d", getLinkGenarator())
+      .each(function (this: any, d: any) {
+        d.totalLength = this.getTotalLength();
+      });
   }
 
   function addNewPropToConnects(connections: any) {
