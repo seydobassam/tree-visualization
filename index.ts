@@ -26,8 +26,10 @@ binaryTreeDrawer().draw("div", bst, {
     addAnimationPaths: true
   }
 });
+
+binaryTreeDrawer().selectNode(bst.root);
 binaryTreeDrawer().onNodeClick((node: any) => {  
-  console.log(node);
+  // console.log(node);
   
   binaryTreeDrawer().animatePath(node?.data?.value, {
     animationClass: "path"

@@ -11,7 +11,7 @@ let treeOptions: TreeOptions;
 let svg: any;
 let el: string;
 let tree: BinaryTree<number | string>;
-let selectedNode = new Map<string, string>();
+let selectedNode = new Map<any, string>();
 let isAnimationEnded: boolean = true;
 let onNodeClickCallback: Function;
 
@@ -93,7 +93,7 @@ export default function binaryTreeDrawer() {
     svg.selectAll("#g").on("click", (event: any, node: any) => {
       if (isAnimationEnded) {
         if (treeOptions.nodeStyleOptions.selectedNodeColor) {
-          selectNode(node);
+          chooseNode(node);
         }
         const [currentNode] = selectedNode.keys();
         callback(currentNode, event);
@@ -101,10 +101,11 @@ export default function binaryTreeDrawer() {
     });
   }
 
-  function selectNode(node: any) {
+  function chooseNode(node: any) {
     const [currentNode] = selectedNode.keys();
+  
 
-    if (node === currentNode) {
+    if (node === currentNode || node.data.value === currentNode?.value) {
       fillNode(node, treeOptions.nodeStyleOptions.fillCollor!);
       selectedNode = new Map();
       return;
@@ -118,9 +119,14 @@ export default function binaryTreeDrawer() {
     fillNode(node, treeOptions.nodeStyleOptions.selectedNodeColor!);
   }
 
+  function selectNode(node: any) {
+    if (!node) return;
+    fillNode(node, treeOptions.nodeStyleOptions.selectedNodeColor!);
+  }
+
   function fillNode(node: any, color: string) {
     selectedNode.set(node, color);
-    let id: string = `#${node.nodeId}`;
+    let id: string = node.nodeId ? `#${node.nodeId}` : `#node${node.value}`;
     d3.select(id).style("fill", color);
   }
 
@@ -415,5 +421,6 @@ export default function binaryTreeDrawer() {
     stopTransition: stopTransition,
     resetTree: resetTree,
     removeTree: removeTree,
+    selectNode: selectNode
   };
 }
