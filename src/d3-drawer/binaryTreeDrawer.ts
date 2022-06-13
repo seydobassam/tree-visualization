@@ -39,7 +39,7 @@ export default function binaryTreeDrawer() {
     if (treeOptions.zoom) addZoom();
   }
 
-  function refreshTree() {
+  function resetTree() {
     isAnimationEnded = true;
     removeTree();
     draw(el, tree, treeOptions);
@@ -413,7 +413,7 @@ export default function binaryTreeDrawer() {
     animatePath: animatePath,
     animateNode: animateNode,
     stopTransition: stopTransition,
-    refreshTree: refreshTree,
+    resetTree: resetTree,
     removeTree: removeTree,
   };
 }
