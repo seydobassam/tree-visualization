@@ -1,3 +1,5 @@
+import { AnimationStyle } from "./../options/animation-style";
+import { AnimationOptions } from "./../models/options/animation-options";
 import { LinkStyleOptions } from "./../options/link-style-options";
 import { TreeOptions } from "../models/options/tree-options";
 import { NodeStyleOptions } from "../options/node-style-options";
@@ -59,39 +61,33 @@ export default function binaryTreeDrawer() {
     d3.select("#svg-container").remove();
   }
 
-  function animatePath(pathId: number, linkStyleOptions?: LinkStyleOptions) {
+  function animatePath(pathId: number, pathAnimationStyle?: AnimationOptions) {
     if (!isAnimationEnded) return;
-    const id: string = !linkStyleOptions?.animationPaths?.animationClass
+    const id: string = !treeOptions?.linkStyleOptions?.addAnimationPaths
       ? "#path"
       : "#animationPath";
     const path = svg.select(`${id}${pathId}`);
-    if (linkStyleOptions?.animationPaths?.animationClass) {
-      return path.attr(
-        "class",
-        linkStyleOptions?.animationPaths?.animationClass
-      );
+    if (pathAnimationStyle?.animationClass) {
+      return path.attr("class", pathAnimationStyle?.animationClass);
     }
     return path
       .transition(300)
-      .duration(linkStyleOptions?.animationPaths?.duration)
+      .duration(pathAnimationStyle?.duration)
       .attr("stroke", "#626ee3");
   }
 
-  function animateNode(nodeId: number, nodeStyleOptions?: NodeStyleOptions) {
+  function animateNode(nodeId: number, nodeAnimationStyle?: AnimationOptions) {
     if (!isAnimationEnded) return;
-    const id: string = !nodeStyleOptions?.animationNodes?.animationClass
+    const id: string = !treeOptions?.nodeStyleOptions?.addAnimationNodes
       ? "#node"
       : "#animationNode";
     const node = svg.select(`${id}${nodeId}`);
-    if (nodeStyleOptions?.animationNodes?.animationClass) {
-      return node.attr(
-        "class",
-        nodeStyleOptions?.animationNodes?.animationClass
-      );
+    if (nodeAnimationStyle?.animationClass) {
+      return node.attr("class", nodeAnimationStyle?.animationClass);
     }
     return node
       .transition(300)
-      .duration(nodeStyleOptions?.animationNodes?.duration)
+      .duration(nodeAnimationStyle?.duration)
       .attr("stroke", "#626ee3");
   }
 
@@ -237,6 +233,7 @@ export default function binaryTreeDrawer() {
     binaryTreeEnter
       .append("circle")
       .attr("r", nodeStyleOptions.radius)
+      .attr( "fill", nodeStyleOptions.fillCollor)
       .attr("id", function (node: any) {
         node.nodeId = `node${node.data.value || node.data.id}`;
         return node.nodeId;
@@ -244,15 +241,16 @@ export default function binaryTreeDrawer() {
 
     if (nodeStyleOptions.addAnimationNodes) {
       binaryTreeEnter
-      .append("circle")
-      .attr("r", nodeStyleOptions.radius)
-      .attr("id", function (node: any) {
-        node.nodeId = `animationNode${node.data.value || node.data.id}`;
-        return node.nodeId;
-      });
+        .append("circle")
+        .attr("r", nodeStyleOptions.radius)
+        .attr( "fill", nodeStyleOptions.addAnimationNodes ? "transparent": nodeStyleOptions.fillCollor)
+        .attr("id", function (node: any) {
+          node.nodeId = `animationNode${node.data.value || node.data.id}`;
+          return node.nodeId;
+        });
     }
+
     const style = {
-      fill: nodeStyleOptions.fillCollor,
       stroke: nodeStyleOptions.strokeColor,
       "stroke-width": nodeStyleOptions.strokeWidth,
     };

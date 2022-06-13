@@ -25,15 +25,21 @@ binaryTreeDrawer().draw("div", bst, {
   linkStyleOptions: {
     addAnimationPaths: true,
   },
+  nodeStyleOptions: {
+    addAnimationNodes: true,
+    strokeColor: "blue"
+  },
 });
 
 binaryTreeDrawer().selectNode(bst.root);
 binaryTreeDrawer().onNodeClick((node: any) => {
   // console.log(node);
 
+  binaryTreeDrawer().animateNode(node?.data?.value, {
+    animationClass: "path",
+  });
+
   binaryTreeDrawer().animatePath(node?.data?.value, {
-    animationPaths: {
-      animationClass: "path",
-    },
+    animationClass: "path",
   });
 });

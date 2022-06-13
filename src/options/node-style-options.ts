@@ -1,5 +1,3 @@
-import { AnimationStyle } from './animation-style';
-import { AnimationOptions } from './../models/options/animation-options';
 import { StyleOptions } from "../models/options/style-options";
 
 export class NodeStyleOptions implements StyleOptions {
@@ -11,5 +9,4 @@ export class NodeStyleOptions implements StyleOptions {
   public strokeWidth?: string = "3px";
   public styleClass?: string = undefined;
   public addAnimationNodes?: boolean = false;
-  public animationNodes?: AnimationOptions = new AnimationStyle();
 }
