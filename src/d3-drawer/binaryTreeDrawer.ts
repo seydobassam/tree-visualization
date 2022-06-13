@@ -14,6 +14,7 @@ let tree: BinaryTree<number | string>;
 let selectedNode = new Map<any, string>();
 let isAnimationEnded: boolean = true;
 let onNodeClickCallback: Function;
+let isFreeze: boolean = false;
 
 // FIXME: use single principle to refactor below code
 export default function binaryTreeDrawer() {
@@ -90,8 +91,12 @@ export default function binaryTreeDrawer() {
       .attr("stroke", "#626ee3");
   }
 
+  function setFreeze(freeze) {
+    isFreeze = freeze;
+  }
+
   function onNodeClick(callback: Function): void {
-    if (typeof callback !== "function") {
+    if (typeof callback !== "function" || isFreeze) {
       return;
     }
     onNodeClickCallback = callback;
@@ -438,5 +443,6 @@ export default function binaryTreeDrawer() {
     resetTree: resetTree,
     removeTree: removeTree,
     selectNode: selectNode,
+    setFreeze: setFreeze
   };
 }
