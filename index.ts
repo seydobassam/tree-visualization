@@ -23,15 +23,17 @@ bst.addNode(149);
 
 binaryTreeDrawer().draw("div", bst, {
   linkStyleOptions: {
-    addAnimationPaths: true
-  }
+    addAnimationPaths: true,
+  },
 });
 
 binaryTreeDrawer().selectNode(bst.root);
-binaryTreeDrawer().onNodeClick((node: any) => {  
+binaryTreeDrawer().onNodeClick((node: any) => {
   // console.log(node);
-  
+
   binaryTreeDrawer().animatePath(node?.data?.value, {
-    animationClass: "path"
+    animationPaths: {
+      animationClass: "path",
+    },
   });
 });
