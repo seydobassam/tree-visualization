@@ -1,5 +1,4 @@
 import { LinkStyleOptions } from "./../options/link-style-options";
-import { AnimationOptions } from "./../models/options/animation-options";
 import { TreeOptions } from "../models/options/tree-options";
 import { NodeStyleOptions } from "../options/node-style-options";
 import BinaryTree from "../models/binary-tree";
