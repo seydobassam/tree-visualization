@@ -99,8 +99,10 @@ export default function binaryTreeDrawer() {
     if (typeof callback !== "function" || isFreeze) {
       return;
     }
+    console.log("isfreeze", isFreeze);
     onNodeClickCallback = callback;
     svg.selectAll("#g").on("click", (event: any, node: any) => {
+      if (isFreeze) return; 
       if (isAnimationEnded) {
         if (treeOptions.nodeStyleOptions.selectedNodeColor) {
           chooseNode(node);

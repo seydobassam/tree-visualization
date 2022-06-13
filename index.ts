@@ -33,6 +33,7 @@ binaryTreeDrawer().draw("div", bst, {
 
 binaryTreeDrawer().selectNode(bst.root);
 binaryTreeDrawer().onNodeClick((node: any) => {
+  binaryTreeDrawer().setFreeze(true);
   // console.log(node);
 
   binaryTreeDrawer().animateNode(node?.data?.value, {
