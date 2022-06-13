@@ -1,4 +1,3 @@
-import { AnimationStyle } from "./../options/animation-style";
 import { AnimationOptions } from "./../models/options/animation-options";
 import { LinkStyleOptions } from "./../options/link-style-options";
 import { TreeOptions } from "../models/options/tree-options";

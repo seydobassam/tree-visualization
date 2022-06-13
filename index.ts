@@ -26,7 +26,7 @@ binaryTreeDrawer().draw("div", bst, {
     addAnimationPaths: true,
   },
   nodeStyleOptions: {
-    addAnimationNodes: true,
+    addAnimationNodes: false,
     strokeColor: "blue"
   },
 });
