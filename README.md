@@ -17,9 +17,6 @@
     <img alt="License: MIT" src="https://img.shields.io/github/license/seydobassam/tree-visualizer?style=flat-square"/>
   </a>
 </p>
-<p align="center"> 
-  <img src="./react-tree-vis-demo.gif" width="700" />
-<p/>
 
 ## About
 
@@ -30,7 +27,7 @@ A Reactive Binary tree visualizer that can visualize a Binary search tree, the l
 ### Installation
 
 ```sh
-# NPM
+# npm
 npm install tree-visualizer
 ```
 
@@ -80,6 +77,11 @@ bst.addNode(149);
 // and then the created Binary Search data structure.
 binaryTreeDrawer().draw("#binarySearchTree", bst);
 ```
+
+### Options
+
+
+
 ## Author
 
 👤 **Bassam/Martin Seydo**
