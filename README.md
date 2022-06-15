@@ -93,5 +93,5 @@ Give a ⭐️ if this project helped you!
 
 ## 📝 License
 
-Copyright © 2021 [Bassam Seydo](https://github.com/seydobassam).<br />
+Copyright © 2022 [Bassam Seydo](https://github.com/seydobassam).<br />
 This project is [MIT](https://github.com/seydobassam/binary-tree/blob/master/LICENSE) licensed.
