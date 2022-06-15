@@ -1,3 +1,4 @@
+// Example for testing 
 import { BinaryTree, binaryTreeDrawer } from "./src/index";
 
 let bst: BinaryTree<number> = new BinaryTree<number>(100);
