@@ -22,6 +22,8 @@
 
 A Reactive Binary tree visualizer that can visualize a Binary search tree, the library has the Binary search tree data structure out of the box, it can be used and the binaryTreeDrawer function can draw it via d3.  The library supports a lot of options such as animation and styling via CSS classes, click nodes, as well as zoom the tree in and out, and many more ...
 
+You are welcome to [report bugs](https://github.com/seydobassam/tree-visualizer/issues) or create pull requests. 
+
 ## Documentation
 
 ### Installation
