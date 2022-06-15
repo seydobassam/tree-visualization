@@ -22,26 +22,16 @@ bst.addNode(233);
 bst.addNode(235);
 bst.addNode(149);
 
-binaryTreeDrawer().draw("div", bst, {
+const treeOptions = {
+  height: window.innerHeight - 135,
   linkStyleOptions: {
+    strokeWidth: "5px",
     addAnimationPaths: true,
   },
   nodeStyleOptions: {
-    addAnimationNodes: false,
-    strokeColor: "blue"
+    strokeWidth: "5px",
   },
-});
+};
 
+binaryTreeDrawer().draw("div", bst, treeOptions);
 binaryTreeDrawer().selectNode(bst.root);
-binaryTreeDrawer().onNodeClick((node: any) => {
-  binaryTreeDrawer().setFreeze(true);
-  // console.log(node);
-
-  binaryTreeDrawer().animateNode(node?.data?.value, {
-    animationClass: "path",
-  });
-
-  binaryTreeDrawer().animatePath(node?.data?.value, {
-    animationClass: "path",
-  });
-});
