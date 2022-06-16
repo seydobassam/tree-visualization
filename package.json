@@ -1,9 +1,12 @@
 {
-  "name": "binary-tree",
-  "private": true,
-  "version": "0.0.0",
+  "name": "tree-visualizer",
+  "private": false,
+  "version": "1.0.0",
   "files": ["dist/**/*"],
-  "main": "dist/index.js",
+  "main": "dist/tree-visualizer.js",
+  "author": {
+    "name": "Bassam Seydo"
+  },
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
