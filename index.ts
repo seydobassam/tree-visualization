@@ -1,5 +1,5 @@
 // Example for testing 
-import { BinaryTree, binaryTreeDrawer } from "./src/index";
+import { BinaryTree, binaryTreeDrawer } from "./src/tree-visualizer";
 
 let bst: BinaryTree<number> = new BinaryTree<number>(100);
 bst.addNode(51);
