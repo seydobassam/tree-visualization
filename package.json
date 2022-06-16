@@ -1,7 +1,7 @@
 {
   "name": "tree-visualization",
   "private": false,
-  "version": "1.0.3",
+  "version": "1.0.4",
   "files": ["dist/**/*"],
   "main": "dist/tree-visualization.js",
   "type": "module",
