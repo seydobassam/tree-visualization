@@ -78,7 +78,7 @@ bst.addNode(149);
 binaryTreeDrawer().draw("#binarySearchTree", bst);
 ```
 
-### Usage With Some Options
+### Usage With More Options
 ```ts
 // Example for testing 
 import { BinaryTree, binaryTreeDrawer } from "tree-visualizer";
