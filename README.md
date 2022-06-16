@@ -1,4 +1,4 @@
-<h1 align="center"> Tree Visualizer 👋</h1>
+<h1 align="center"> Tree Visualization 👋</h1>
 
 <p align="center">
   <a href="https://github.com/seydobassam/tree-visualizer#readme#options" target="_blank">
@@ -29,7 +29,7 @@ You are welcome to [report bugs, Features](https://github.com/seydobassam/tree-v
 
 ```sh
 # npm
-npm install tree-visualizer
+npm install tree-visualization
 ```
 
 ### Qiuck Usage
@@ -51,7 +51,7 @@ The HTML where the Binary Search tree will be rendered
 Create BinarySearchTree data Structure and then draw it via  `draw()` function.
 
 ```ts
-import { BinaryTree, binaryTreeDrawer } from "tree-visualizer";
+import { BinaryTree, binaryTreeDrawer } from "tree-visualization";
 
 const bst: BinaryTree<number> = new BinaryTree<number>(100);
 bst.addNode(51);
@@ -81,7 +81,7 @@ binaryTreeDrawer().draw("#binarySearchTree", bst);
 ### Usage With More Options
 ```ts
 // Example for testing 
-import { BinaryTree, binaryTreeDrawer } from "tree-visualizer";
+import { BinaryTree, binaryTreeDrawer } from "tree-visualization";
 
 const bst: BinaryTree<number> = new BinaryTree<number>(100);
 bst.addNode(51);
