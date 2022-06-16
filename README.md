@@ -73,8 +73,8 @@ bst.addNode(57);
 bst.addNode(233);
 bst.addNode(235);
 bst.addNode(149);
-// Draw the Binary Search Tree by giving the draw function the Element Id where the Binary Search tree will render 
-// and then the created Binary Search data structure.
+// Draw the Binary Search Tree by giving the draw function the Element Id where 
+// the Binary Search tree will render and then the created Binary Search data structure.
 binaryTreeDrawer().draw("#binarySearchTree", bst);
 ```
 
