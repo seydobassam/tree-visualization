@@ -1,7 +1,5 @@
 <h1 align="center"> Tree Visualizer 👋</h1>
 #
-![Binary Tree](./src/assets/binary-search-tree.png)
-
 
 <p align="center">
   <a href="https://github.com/seydobassam/tree-visualizer#readme#options" target="_blank">
@@ -17,6 +15,8 @@
     <img alt="License: MIT" src="https://img.shields.io/github/license/seydobassam/tree-visualizer?style=flat-square"/>
   </a>
 </p>
+
+![Binary Tree](./src/assets/binary-search-tree.png)
 
 ## About
 
