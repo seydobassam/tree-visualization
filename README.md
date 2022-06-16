@@ -1,4 +1,4 @@
-<h1 align="center"> Tree Visualizer 👋</h1>
+<h1 align="center"> Tree Visualization 👋</h1>
 
 <p align="center">
   <a href="https://github.com/seydobassam/tree-visualizer#readme#options" target="_blank">
