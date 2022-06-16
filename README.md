@@ -29,7 +29,7 @@ You are welcome to [report bugs, Features](https://github.com/seydobassam/tree-v
 
 ```sh
 # npm
-npm install tree-visualization
+npm i install tree-visualization
 ```
 
 ### Qiuck Usage
