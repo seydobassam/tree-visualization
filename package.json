@@ -7,6 +7,17 @@
   "author": {
     "name": "Bassam Seydo"
   },
+  "repository": "https://github.com/seydobassam/tree-visualizer",
+  "bugs": "https://github.com/seydobassam/tree-visualizer/issues",
+  "keywords": [
+    "tree-visualizer", 
+    "visualizer", 
+    "binary-tree-visualization", 
+    "BST", 
+    "visualization",
+    "binary-tree-view"
+  ],
+  "license": "MIT",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
