@@ -114,8 +114,8 @@ binaryTreeDrawer().onNodeClick((node: any) => {
 |**onNodeClick()**|Event listener for a Node when it clicks. The function has a Callback function which will be triggered when the Node is clicked and it will return the current selected Node |
 |**animateNode()**|This Function will animate a Node. Just give a Function the Node Value you want to Animate and for **animation options** the function accepts also a parameter for that|
 |**animatePath()**|This Function will animate a Connection. Just give a Function the Node Value that the Path is from Top to down connected to and the Function has also a parameter for animation options|
-|**resetTree()**|The function for the resetting the Binary Tree to create a state|
-|**removeTree()**|The function for removing the Binary Tree from **DOM**|
+|**resetTree()**|Resetting the Binary Tree to the created a state|
+|**removeTree()**|Remove the Binary Tree from **DOM**|
 |**selectNode()**|The function for selecting any Node after Binary Tree is Created accepts the **Node object**. To use just give a function the Node you want to be selected |
 |**setFreeze()**|This function will freeze the Binary Tree and Nothing can be changed until you set it back to **false**. Note: the function will not stop the animation if it is already running|
 
