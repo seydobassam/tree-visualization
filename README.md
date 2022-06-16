@@ -83,9 +83,9 @@ binaryTreeDrawer().draw("#binarySearchTree", bst);
 ### Options
 
 |Name|Type|value|Description|
-|:--:|:--:|:----------|
-|**`width`**|`number`|Default: `window.innerWidth`.|A width for the Binary Tree|
-|**`height`**|`number`|Default: `window.innerHeight`.|A height for the Binary Tree|
+| :---: | :---: | :---: | :---: |
+|**`width`**|`number`|Default: `window.innerWidth`|A width for the Binary Tree|
+|**`height`**|`number`|Default: `window.innerHeight`|A height for the Binary Tree|
 |**`transformTreeFromTop`**|`number`|Default: `0`|Move the Binary Tree itself from the Top, this property will move just the Binary tree and not the Tree Container|
 |**`transformTreeFromLeft`**|`number`|Default: `0`|Move the Binary Tree itself from the Left, this property will move just the Binary tree and not the Tree Container|
 |**`zoom`**|`boolean`|Default: `true`.|Zoom the Binary Tree in and out|
