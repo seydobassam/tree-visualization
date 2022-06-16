@@ -1,8 +1,8 @@
-
+<h1 align="center"> Tree Visualizer 👋</h1>
 #
 ![Binary Tree](./src/assets/binary-search-tree.png)
 
-<h1 align="center"> Tree Visualizer 👋</h1>
+
 <p align="center">
   <a href="https://github.com/seydobassam/tree-visualizer#readme#options" target="_blank">
     <img alt="Documentation" src="https://img.shields.io/badge/Reactive%3F-Yes-green" />
