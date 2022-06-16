@@ -1,9 +1,10 @@
 {
   "name": "tree-visualization",
   "private": false,
-  "version": "1.0.0",
+  "version": "1.0.1",
   "files": ["dist/**/*"],
   "main": "dist/tree-visualization.js",
+  "type": "module",
   "author": {
     "name": "Bassam Seydo"
   },
