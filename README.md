@@ -33,7 +33,7 @@ You are welcome to [report bugs](https://github.com/seydobassam/tree-visualizer/
 npm install tree-visualizer
 ```
 
-### Usage
+### Qiuck Usage
 
 The HTML where the Binary Search tree will be rendered
 
