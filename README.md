@@ -84,22 +84,22 @@ binaryTreeDrawer().draw("#binarySearchTree", bst);
 
 |Name|Type|value|Description|
 | :---: | :---: | :---: | :---: |
-|**`width`**|`number`|Default: `window.innerWidth`|A width for the Binary Tree|
-|**`height`**|`number`|Default: `window.innerHeight`|A height for the Binary Tree|
-|**`transformTreeFromTop`**|`number`|Default: `0`|Move the Binary Tree itself from the Top, this property will move just the Binary tree and not the Tree Container|
-|**`transformTreeFromLeft`**|`number`|Default: `0`|Move the Binary Tree itself from the Left, this property will move just the Binary tree and not the Tree Container|
-|**`zoom`**|`boolean`|Default: `true`.|Zoom the Binary Tree in and out|
-|**`autoFitText`**|`boolean`|Default: `true`.|This property will auto-expand the Nodes Radius based on the node value length, so that the value of the node can fit inside the Node|
-|**`drawNodes`**|`boolean`|Default: `true`.|Draw the Nodes, if it is set to the `false` the Nodes will not be drawn|
-|**`drawNodevalue`**|`boolean`|Default: `true`.|Draw Node value, if it is set to the `false` the Node will display without its value|
-|**`drawConnections`**|`boolean`|Default: `true`.|Draw the Connections between the Nodes, if it is set to the `false` the Nodes will display without Connections|
-|**`sizeBetweenNodes`**|`number`|Default: `180`.|The size between the Nodes in the Binary Tree|
-|**`autoExpandTreeSize`**|`boolean`|Default: `false`.|This property will auto-expand the tree, based on how many nodes are in the Binary Tree and the screen size|
-|**`addMouseHoverToNodes`**|`boolean`|Default: `true`.|While moving the mouse to the Node it will be a pointer|
-|**`animation`**|`boolean`|Default: `false`.|Animate the Binary Tree while building it|
-|**`duration`**|`number`|Default: `false`.|The animation duration to build the Binary Tree|
-|**`nodeStyleOptions`**|`Object`|Default: `new NodeStyleOptions()`.|The style options for the Nodes|
-|**`linkStyleOptions`**|`Object`|Default: `new LinkStyleOptions()`.|The style options for the Connections|
+|**width**|`number`|Default: `window.innerWidth`|A width for the Binary Tree|
+|**height**|`number`|Default: `window.innerHeight`|A height for the Binary Tree|
+|**transformTreeFromTop**|`number`|Default: `0`|Move the Binary Tree itself from the Top, this property will move just the Binary tree and not the Tree Container|
+|**transformTreeFromLeft**|`number`|Default: `0`|Move the Binary Tree itself from the Left, this property will move just the Binary tree and not the Tree Container|
+|**zoom**|`boolean`|Default: `true`.|Zoom the Binary Tree in and out|
+|**autoFitText**|`boolean`|Default: `true`.|This property will auto-expand the Nodes Radius based on the node value length, so that the value of the node can fit inside the Node|
+|**drawNodes**|`boolean`|Default: `true`.|Draw the Nodes, if it is set to the `false` the Nodes will not be drawn|
+|**drawNodevalue**|`boolean`|Default: `true`.|Draw Node value, if it is set to the `false` the Node will display without its value|
+|**drawConnections**|`boolean`|Default: `true`.|Draw the Connections between the Nodes, if it is set to the `false` the Nodes will display without Connections|
+|**sizeBetweenNodes**|`number`|Default: `180`.|The size between the Nodes in the Binary Tree|
+|**autoExpandTreeSize**|`boolean`|Default: `false`.|This property will auto-expand the tree, based on how many nodes are in the Binary Tree and the screen size|
+|**addMouseHoverToNodes**|`boolean`|Default: `true`.|While moving the mouse to the Node it will be a pointer|
+|**animation**|`boolean`|Default: `false`.|Animate the Binary Tree while building it|
+|**duration**|`number`|Default: `false`.|The animation duration to build the Binary Tree|
+|**nodeStyleOptions**|`Object`|Default: `new NodeStyleOptions()`.|The style options for the Nodes|
+|**linkStyleOptions**|`Object`|Default: `new LinkStyleOptions()`.|The style options for the Connections|
 ## Author
 
 👤 **Bassam/Martin Seydo**
