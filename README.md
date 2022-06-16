@@ -108,7 +108,7 @@ binaryTreeDrawer().onNodeClick((node: any) => {
 ```
 
 ### Binary Tree (binaryTreeDrawer) Functions
-|Name|Description|
+|Function Name|Description|
 | :---: | :---: |
 |**draw()**|The Function will draw the Binary Tree that is Created, the Function accepts 3 Parameters. **The First one:** "HTML element where the Binary Tree should be drawn, this can be a **Tag**, **Class**,  or **Id**". **Second one:** The Created Binary Tree. **Third one:** the options for the Binary Tree|
 |**onNodeClick()**|Event listener for a Node when it clicks. The function has a Callback function which will be triggered when the Node is clicked and it will return the current selected Node |
