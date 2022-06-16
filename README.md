@@ -74,13 +74,12 @@ bst.addNode(57);
 bst.addNode(233);
 bst.addNode(235);
 bst.addNode(149);
-
 // Draw the Binary Search Tree by giving the draw function the Element Id where the Binary Search tree will render 
 // and then the created Binary Search data structure.
 binaryTreeDrawer().draw("#binarySearchTree", bst);
 ```
 
-### Options
+### Binary Tree Options
 
 |Name|Type|value|Description|
 | :---: | :---: | :---: | :---: |
@@ -100,6 +99,32 @@ binaryTreeDrawer().draw("#binarySearchTree", bst);
 |**duration**|`number`|Default: `false`.|The animation duration to build the Binary Tree|
 |**nodeStyleOptions**|`Object`|Default: `new NodeStyleOptions()`.|The style options for the Nodes|
 |**linkStyleOptions**|`Object`|Default: `new LinkStyleOptions()`.|The style options for the Connections|
+
+
+### Node Style Options
+
+|Name|Type|value|Description|
+| :---: | :---: | :---: | :---: |
+|**radius**|`number`|Default: `10`|The radius of the Node or the size of the Node|
+|**fillCollor**|`string`|Default: `#fff`|The Color of the Node|
+|**onMouseHoverColor**|`string`|Default: `undefined`|Change the Node Color while Mouse is over a Node|
+|**selectedNodeColor**|`string`|Default: `#09c372` Which is Green|The current selected Node Color|
+|**strokeColor**|`string`|Default: `#09c372` Which is Green|The Border radius or Stroke Color of the Nodes|
+|**strokeWidth**|`string`|Default: `3px`|The width of the Node Border|
+|**styleClass**|`string`|Default: `undefined`|Add your own CSS class for the Node, NOTE: this will maybe disable some other default options for the Nodes|
+|**addAnimationNodes**|`boolean`|Default: `false`|Duplicate the Nodes on Top of the default Nodes for Animation. Note: The Id for those Nodes will be the `animationNode` and the `Node Value` Example: `animationsNode7`|
+
+
+### Connection/Link Style Options
+
+|Name|Type|value|Description|
+| :---: | :---: | :---: | :---: |
+|**strokeColor**|`string`|Default: `#ccc`|The Color of the Connection|
+|**strokeWidth**|`string`|Default: `3px`|The width of the Connection|
+|**styleClass**|`string`|Default: `undefined`|Add your own CSS class for the Connection, NOTE: this will maybe disable some other default options for the Connections|
+|**addAnimationNodes**|`boolean`|Default: `false`|Duplicate the Connections on Top of the default Connections for Animation. Note: The Id for those Connections will be the `animationPath` and the `Node Value` Example: `animationsPath10`|
+
+
 ## Author
 
 👤 **Bassam/Martin Seydo**
