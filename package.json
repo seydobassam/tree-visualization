@@ -1,18 +1,19 @@
 {
-  "name": "tree-visualizer",
+  "name": "tree-visualization",
   "private": false,
   "version": "1.0.0",
   "files": ["dist/**/*"],
-  "main": "dist/tree-visualizer.js",
+  "main": "dist/tree-visualization.js",
   "author": {
     "name": "Bassam Seydo"
   },
-  "repository": "https://github.com/seydobassam/tree-visualizer",
-  "bugs": "https://github.com/seydobassam/tree-visualizer/issues",
+  "repository": "https://github.com/seydobassam/tree-visualization",
+  "bugs": "https://github.com/seydobassam/tree-visualization/issues",
   "keywords": [
     "tree-visualizer", 
-    "visualizer", 
+    "visualizer",
     "binary-tree-visualization", 
+    "binary-tree-visualizer", 
     "BST", 
     "visualization",
     "binary-tree-view"
