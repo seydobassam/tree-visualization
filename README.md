@@ -53,7 +53,7 @@ Create BinarySearchTree data Structure and then draw it via  `draw()` function.
 ```ts
 import { BinaryTree, binaryTreeDrawer } from "tree-visualizer";
 
-let bst: BinaryTree<number> = new BinaryTree<number>(100);
+const bst: BinaryTree<number> = new BinaryTree<number>(100);
 bst.addNode(51);
 bst.addNode(150);
 bst.addNode(12);
@@ -81,9 +81,9 @@ binaryTreeDrawer().draw("#binarySearchTree", bst);
 ### Usage With Some Options
 ```ts
 // Example for testing 
-import { BinaryTree, binaryTreeDrawer } from "./src/index";
+import { BinaryTree, binaryTreeDrawer } from "tree-visualizer";
 
-let bst: BinaryTree<number> = new BinaryTree<number>(100);
+const bst: BinaryTree<number> = new BinaryTree<number>(100);
 bst.addNode(51);
 bst.addNode(150);
 bst.addNode(12);
