@@ -101,6 +101,10 @@ const treeOptions = {
 
 binaryTreeDrawer().draw("#binarySearchTree", bst, treeOptions);
 binaryTreeDrawer().selectNode(bst.root);
+// onNodeClick with callback 
+binaryTreeDrawer().onNodeClick((node: any) => {
+  console.log("selected Node: ", node);
+})
 ```
 
 
